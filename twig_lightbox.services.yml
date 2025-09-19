@@ -1,0 +1,5 @@
+services:
+  twig_lightbox.twig.lightbox:
+    class: Drupal\twig_lightbox\Twig\LightboxExtension
+    tags:
+      - { name: twig.extension }

@@ -1,0 +1,6 @@
+name: Twig Lightbox
+description: Adds a twig extension that wraps <img> with <a> for lightbox jquery plugin.
+package: Custom
+
+type: module
+core_version_requirement: ^9 || ^10
