@@ -5,6 +5,7 @@ namespace Drupal\twig_lightbox\Twig;
 use DOMDocument;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Masterminds\HTML5;
 
 class LightboxExtension extends AbstractExtension
 {
@@ -25,8 +26,8 @@ class LightboxExtension extends AbstractExtension
 
     public function wrap($source, $group)
     {
-        $html = new DOMDocument();
-        $html->loadHTML($source, LIBXML_HTML_NOIMPLIED);
+        $html = new HTML5();
+        $html = $html->loadHTML($source);
         $images = $html->getElementsByTagName('img');
 
         foreach ($images as $img) {
