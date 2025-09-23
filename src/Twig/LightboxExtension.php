@@ -18,6 +18,7 @@ class LightboxExtension extends AbstractExtension
 
     public function lightbox($source, $group)
     {
+        $source['#attached']['library'][] = 'twig_lightbox/lightbox';
         $source['#post_render'][] = function ($source, $element) use ($group) {
             return $this->wrap($source, $group);
         };

@@ -1,0 +1,9 @@
+lightbox:
+  version: 2.11.5
+  css:
+    theme:
+      https://unpkg.com/lightbox2@2.11.5/dist/css/lightbox.min.css:
+        { type: external }
+  js:
+    https://unpkg.com/lightbox2@2.11.5/dist/js/lightbox.min.js:
+      { type: external }
