@@ -32,6 +32,11 @@ class LightboxExtension extends AbstractExtension
         $images = $html->getElementsByTagName('img');
 
         foreach ($images as $img) {
+            $parent = $img->parentNode;
+            if ($parent && $parent->nodeName === 'a') {
+                continue;
+            }
+
             $src = $img->getAttribute('src');
             if (empty($src)) continue;
             $caption = $this->getImageCaption($img);
