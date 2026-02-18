@@ -31,6 +31,7 @@ class LightboxExtension extends AbstractExtension
         $html = $html->loadHTML($source);
         $images = $html->getElementsByTagName('img');
 
+        $index = 0;
         foreach ($images as $img) {
             $parent = $img->parentNode;
             if ($parent && $parent->nodeName === 'a') {
@@ -40,6 +41,7 @@ class LightboxExtension extends AbstractExtension
             $src = $img->getAttribute('src');
             if (empty($src)) continue;
             $caption = $this->getImageCaption($img);
+            if (empty($caption)) $caption = $group . ': image-' . $index;
 
             $anchor = $html->createElement("a");
             $anchor->setAttribute('href', $src);
@@ -51,6 +53,7 @@ class LightboxExtension extends AbstractExtension
             $anchor->appendChild($copy);
 
             $img->parentNode->replaceChild($anchor, $img);
+            $index++;
         }
 
         $source = $html->saveHTML();
