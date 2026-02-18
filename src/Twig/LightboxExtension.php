@@ -45,6 +45,7 @@ class LightboxExtension extends AbstractExtension
             $anchor->setAttribute('href', $src);
             $anchor->setAttribute('data-lightbox', $group);
             $anchor->setAttribute('data-title', $caption);
+            $anchor->setAttribute('aria-label', $caption);
 
             $copy = $img->cloneNode(true);
             $anchor->appendChild($copy);
