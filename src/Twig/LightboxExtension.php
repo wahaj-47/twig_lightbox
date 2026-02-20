@@ -65,6 +65,9 @@ class LightboxExtension extends AbstractExtension
         $data_title = $img->getAttribute("data-title");
         if (!empty($data_title)) return $data_title;
 
+        $alt = $img->getAttribute("alt");
+        if (!empty($alt)) return $alt;
+
         $sibling = $img->nextSibling;
         while ($sibling) {
             if ($sibling->nodeName == 'figcaption') return trim($sibling->textContent);
